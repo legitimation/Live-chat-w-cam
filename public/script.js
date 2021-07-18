@@ -20,15 +20,17 @@ navigator.mediaDevices.getUserMedia({
       addVideoStream(video, userVideoStream)
     })
   })
- 
+
+
   socket.on('user-connected', userId => {
-      // user is joining
-    setTimeout(() => {
-    // user joined
-    connectToNewUser(userId, stream)
-  }, 1000)
-  })
+  // user is joining
+  setTimeout(() => {
+  // user joined
+  connectToNewUser(userId, stream)
+  }, 2000)
 })
+})
+
 
 socket.on('user-disconnected', userId => {
   if (peers[userId]) peers[userId].close()
